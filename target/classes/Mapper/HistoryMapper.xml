@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="CR553.Mapper.HistoryMapper">
+
+
+    <select id="findHistory" parameterType="History" resultType="History">
+        select * from history where ds=#{ds};
+    </select>
+
+    <update id="updateHistory" parameterType="History">
+        update history set confirm=#{confirm},confirm_add=#{confirm_add},
+        suspect_add=#{suspect_add},suspect=#{suspect},heal=#{heal},heal_add=#{heal_add},
+        dead=#{dead},dead_add=#{dead_add} where ds=#{ds};
+    </update>
+
+    <insert id="saveHistory" parameterType="History">
+        insert into History(ds,confirm,confirm_add,suspect,suspect_add,heal,heal_add,dead,dead_add)
+        values(#{ds},#{confirm},#{confirm_add},#{suspect},#{suspect_add},#{heal},#{heal_add},#{dead},#{dead_add});
+    </insert>
+
+    <select id="findToday" resultType="History">
+        SELECT * FROM history ORDER BY ds DESC LIMIT 1;
+    </select>
+
+    <select id="findEachDayTotal" resultType="History">
+        SELECT ds,confirm,suspect,heal,dead FROM history;
+    </select>
+
+    <select id="findEachDayAdd" resultType="History">
+        SELECT ds,confirm_add,suspect_add,heal_add,dead_add FROM history;
+    </select>
+
+
+</mapper>
+
+
+

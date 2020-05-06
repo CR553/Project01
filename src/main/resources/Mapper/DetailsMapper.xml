@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CR553.Mapper.DetailsMapper">
+
+
+    <select id="findDetails"   resultType="Details" parameterType="Details">
+        select  * from details where city=#{city} and province=#{province} ;
+    </select>
+
+    <insert id="saveDetails" parameterType="Details">
+        insert into details(update_time,province,city,confirm,confirm_add,heal,dead) values (#{update_time},#{province},#{city},#{confirm},
+        #{confirm_add},#{heal},#{dead})
+    </insert>
+
+    <update id="updateDetails" parameterType="Details">
+        update details set update_time=#{update_time},confirm=#{confirm},confirm_add=#{confirm_add}
+        ,heal=#{heal},dead=#{dead} where province=#{province} and city=#{city};
+    </update>
+
+
+    <select id="findProvince" resultType="String">
+        SELECT province FROM details
+        WHERE update_time=(SELECT update_time FROM details
+        ORDER BY update_time DESC LIMIT 1 )
+        GROUP BY province;
+    </select>
+
+    <select id="findProvinceValue" resultType="Integer">
+        SELECT SUM(confirm) FROM details
+        WHERE update_time=(SELECT update_time FROM details
+        ORDER BY update_time DESC LIMIT 1 )
+        GROUP BY province;
+    </select>
+
+    <select id="findCity" resultType="String">
+            SELECT city FROM
+    (SELECT city,confirm FROM details
+     WHERE update_time=(SELECT update_time FROM details ORDER BY update_time DESC LIMIT 1)
+     AND province NOT IN("湖北","北京","上海","天津","重庆")
+     UNION ALL
+     SELECT province AS city ,SUM(confirm) AS confirm FROM details
+     WHERE update_time=(SELECT update_time FROM details ORDER BY update_time DESC LIMIT 1)
+     AND province IN("北京","上海","天津","重庆") GROUP BY province ) AS a
+     ORDER BY confirm DESC LIMIT 5;
+
+    </select>
+
+    <select id="findCityValue" resultType="Long">
+        SELECT confirm FROM
+    (SELECT city,confirm FROM details
+     WHERE update_time=(SELECT update_time FROM details ORDER BY update_time DESC LIMIT 1)
+     AND province NOT IN("湖北","北京","上海","天津","重庆")
+     UNION ALL
+     SELECT province AS city ,SUM(confirm) AS confirm FROM details
+     WHERE update_time=(SELECT update_time FROM details ORDER BY update_time DESC LIMIT 1)
+     AND province IN("北京","上海","天津","重庆") GROUP BY province ) AS a
+     ORDER BY confirm DESC LIMIT 5;
+    </select>
+
+
+</mapper>
+
+
+

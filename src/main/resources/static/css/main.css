@@ -1,0 +1,105 @@
+body {
+    margin: 0;
+    background: #333;
+    /*background-color: #FFFFFF;*/
+}
+
+#title {
+    position: absolute;
+    width: 40%;
+    height: 10%;
+    top: 0;
+    left: 30%;
+    color: white;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#time {
+    position: absolute;
+    /* width: 30%; */
+    height: 10%;
+    top: 5%;
+    right: 2%;
+    color: #FFFFFF;
+    font-size: 20px;
+}
+
+#c1 {
+    position: absolute;
+    width: 40%;
+    height: 30%;
+    top: 10%;
+    left: 30%;
+    color: white;
+}
+
+#c2 {
+    position: absolute;
+    width: 40%;
+    height: 60%;
+    top: 40%;
+    left: 30%;
+    /* background-color: #888888; */
+}
+
+.num {
+    width: 25%;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: gold;
+    font-size: 20px;
+}
+
+.txt {
+    width: 25%;
+    float: left;
+    font-family: "幼圆";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.txt h2 {
+    margin: 0;
+}
+
+#l1 {
+    position: absolute;
+    width: 30%;
+    height: 45%;
+    top: 10%;
+    left: 0;
+    /* background-color: #777777; */
+}
+
+#l2 {
+    position: absolute;
+    width: 30%;
+    height: 45%;
+    top: 55%;
+    left: 0;
+    /* background-color: #888888; */
+}
+
+#r1 {
+    position: absolute;
+    width: 30%;
+    height: 45%;
+    top: 10%;
+    right: 0;
+    background-color: #777777;
+}
+
+#r2 {
+    position: absolute;
+    width: 30%;
+    height: 45%;
+    top: 55%;
+    right: 0;
+    background-color: #888888;
+}

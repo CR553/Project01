@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/echarts.min.js"></script>
+    <!-- 先引入jquery -->
+    <script src="js/jquery.js"></script>
+    <!-- 必须先引入china.js 这个文件 因为中国地图需要 -->
+    <script src="js/china.js"></script>
+    <script src="js/dark.js"></script>
+    <script src="js/echarts-wordcloud.min.js"></script>
+    <link href="css/main.css" rel="stylesheet">
+<!--    此处路径有变(删除了static),因为springboot默认加载路径-->
+</head>
+
+<body>
+    <div id="title" >全国疫情实时追踪</div>
+    <div id="time" ></div>
+    <div id="l1"></div>
+    <div id="l2"></div>
+    <div id="c1">
+        <div class="num">
+            <h1 ></h1>
+        </div>
+        <div class="num">
+            <h1 ></h1>
+        </div>
+        <div class="num">
+            <h1 ></h1>
+        </div>
+        <div class="num">
+            <h1 ></h1>
+        </div>
+        <div class="txt">
+            <h2>累计确诊</h2>
+        </div>
+        <div class="txt">
+            <h2>剩余疑似</h2>
+        </div>
+        <div class="txt">
+            <h2>累计治愈</h2>
+        </div>
+        <div class="txt">
+            <h2>累计死亡</h2>
+        </div>
+    </div>
+    <div id="c2"></div>
+    <div id="r1">右一</div>
+    <div id="r2">右二</div>
+    <script src="js/ec_center.js"></script>
+    <script src="js/ec_left1.js"></script>
+    <script src="js/ec_left2.js"></script>
+    <script src="js/ec_right1.js"></script>
+    <script src="js/ec_right2.js"></script>
+
+    <script src="js/controller.js"></script>
+
+    <script>
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>
