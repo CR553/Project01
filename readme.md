@@ -1,6 +1,6 @@
 # 页面效果
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507153752808.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70#pic_center)
 
-![1588778045829](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588778045829.png)
 
 # 项目准备
 
@@ -154,15 +154,7 @@ CREATE TABLE `hot` (
 ```
 
 ## 爬虫源网址
-
-腾讯
-
-https://view.inews.qq.com/g2/getOnsInfo?name=disease_h5
-https://view.inews.qq.com/g2/getOnsInfo?name=disease_other
-
-百度
-
-https://voice.baidu.com/act/virussearch/virussearch
+在项目中
 
 ## Application配置类
 
@@ -208,6 +200,7 @@ public class Details {
 ```
 
 ```java
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -265,7 +258,6 @@ public interface DetailsMapper {
     List<Long> findCityValue();
 
 }
-
 ```
 
 ```
@@ -292,7 +284,6 @@ public interface HistoryMapper {
 
 }
 
-
 ```
 
 ```
@@ -305,7 +296,6 @@ public interface HotMapper {
     List<Hot> findTopHot20();
 
 }
-
 ```
 
 serviceImp
@@ -369,7 +359,6 @@ public class DetailsServiceImpl implements DetailsService {
 
 }
 
-
 ```
 
 ```
@@ -420,7 +409,6 @@ public class HistoryServiceImpl implements HistoryService {
 
 }
 
-
 ```
 
 ```
@@ -443,7 +431,6 @@ public class HotServiceImpl implements HotService {
 
 }
 
-
 ```
 
 
@@ -454,46 +441,34 @@ public class HotServiceImpl implements HotService {
 
 这里是通过打个断点,debug慢慢分析的
 
-![1588775698038](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588775698038.png)
-
+![在这里插入图片描述](https://img-blog.csdnimg.cn/2020050711585661.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
 差不多就这样
 
 
 
 先看details数据的解析
 
-![1588774809504](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588774809504.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855787.png)
 
 数据在这两个中获取
 
 
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507124248393.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507124248374.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507124248415.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
+本质上就是遍历一个双重for循环,外层获取省,内层获取市
 
-![1588176135728](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588176135728.png)
-
-![1588176097604](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588176097604.png)
-
-![1588176009527](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588176009527.png)
-
-本质上就是遍历一个双重for循环
-
-history的
-
+history
 注意的也是两个json数据
 
-![1588775274011](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588775274011.png)
-
-![1588182100778](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588182100778.png)
-
-
-
-![1588182240530](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588182240530.png)
-
-这里要注意一下,chinaDayList中的日期是从1月20号开始的,而chinaDayAddList中的日期是从1月13号开始的,
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855905.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507124248416.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507124248412.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
+这里要注意一下,chinaDayList中的日期是从1月20号开始的,而chinaDayAddList中的日期是从1月13号开始的,还有一点就是防止数组越界,这一点在代码里面会提到.
 
 一个for循环就可以搞定了.
 
-热搜hot表数据很少,debug一下很容易发现
-
+热搜hot表数据很少,debug一下很容易发现,这里不做说明.
 
 
 # 数据的保存
@@ -502,19 +477,12 @@ history的
 
 把数据先保存在ResultItems中,我这里用了随机id,防止key相同
 
-![1588775781334](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588775781334.png)
-
-使用pipepel
-
-![1588775826952](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588775826952.png)
-
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855857.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
+使用pipeline
+![在这里插入图片描述](https://img-blog.csdnimg.cn/2020050711585612.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
 遍历ResultItems,调用detailsService方法保存数据到数据库
-
-![1588775853197](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588775853197.png)
-
-另外两个类似操作
-
-
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855986.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
+另外两个操作基本相同
 
 # Controller+SQL+ajax
 
@@ -522,88 +490,52 @@ history的
 
 整个数据的展示大体分为了六个部分,依次是l1,l2,c1,c2,r1,r2
 
-#### c1
-
-![1588778918419](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588778918419.png)
-
-![1588778178364](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588778178364.png)
-
-
-
-![1588778214106](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588778214106.png)
-
-
-
-![1588778276891](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588778276891.png)
-
-
-
-#### c2
-
-![1588778996293](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588778996293.png)
-
-![1588778312932](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588778312932.png)
-
-![1588778344958](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588778344958.png)
-
-![1588778295362](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588778295362.png)
-
+#### c1  
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855873.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855998.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855886.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855970.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
+#### c2  地图
+![在这里插入图片描述](https://img-blog.csdnimg.cn/2020050711585670.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/2020050711585620.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/202005071158568.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855952.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
 这里的两个sql其实是可以放一起,我这里多走了一步路
 
-#### l1
+#### l1  折线图
 
-![1588779010366](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588779010366.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855906.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
 
-![1588778397453](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588778397453.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/2020050711585611.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855917.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855900.png)
 
-![1588778410939](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588778410939.png)
+#### l2  折线图
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855904.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/2020050711585660.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855921.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855893.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
 
-![1588778448124](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588778448124.png)
-
-![1588778462094](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588778462094.png)
-
-#### l2
-
-![1588779023738](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588779023738.png)
-
-![1588778494688](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588778494688.png)
-
-![1588778508179](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588778508179.png)
-
-![1588778539382](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588778539382.png)
-
-![1588778553942](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588778553942.png)
+#### r1  柱形图
 
 
-
-#### r1
-
-![1588779050671](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588779050671.png)
-
-![1588778579331](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588778579331.png)
-
-![1588778603327](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588778603327.png)
-
-![1588778612331](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588778612331.png)
-
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855972.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/2020050711585614.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855989.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
 这两个sql其实是可以放在一起的,但是我的放一起只查出了一列数据,于是就多走了一步路
 
-#### r2
+#### r2  词云
 
 这里用到了jieba分词器,将分词后的关键字和数值返回给前端
+![在这里插入图片描述](https://img-blog.csdnimg.cn/2020050711585675.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
 
-![1588779134644](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588779134644.png)
-
-![1588778715778](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588778715778.png)
-
-![1588778725020](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588778725020.png)
-
-![1588778744774](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588778744774.png)
-
-![1588778760445](C:\Users\CR553\AppData\Roaming\Typora\typora-user-images\1588778760445.png)
-
+![在这里插入图片描述](https://img-blog.csdnimg.cn/2020050711585677.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855974.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855849.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855944.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
 # 其他技术
-
+关于echarts,该项目用的图表都是echarts中的基础图表,在官网都可以找到,你也可以用你自己找的图表,插值方式大同小异,这里注意的是
+地图和词云需要先引入相关js文件,相关文件都可以在echarts官网下载
 地图和词云需要先引入相关js文件,相关文件都可以在echarts官网下载
 
 <https://echarts.apache.org/zh/download-extension.html>
@@ -621,9 +553,7 @@ selenium基本实用
 [<https://blog.csdn.net/qq_22003641/article/details/79137327>](%3Chttps://blog.csdn.net/qq_22003641/article/details/79137327%3E)
 
 webmagic官方文档
-[http://webmagic.io/docs/zh/](http://webmagic.io/docs/zh/)
-
-
+[http://webmagic.io/docs/zh/](
 
 # 总结
 
@@ -643,3 +573,20 @@ webmagic官方文档
 
 **开源是一种精神**
 
+基础,适合新手.这是我学完springboot 之后第一个小项目,做之前感觉无从下手,做完后又觉得没有什么,项目是参考b站上一个基于python实现的视频做的. 数据库的搭建,sql语句,都是模仿的.自己的部分主要是爬虫和业务的编写.尽管如此,我还是花了好几天时间,从一开始的懵逼到慢慢拨云见日,做完还是有一丢丢的成就感的.
+
+获取资源的路有点曲折,那个视频拿资料要加vx,我一加,说要去他们的培训机构官网注册账号,当时嫌麻烦,没要
+
+在视频的评论区有人先做出来了,基本和视频没差,他把链接发了到了评论(事实上他在好几个疫情可视化的视频下面都留了链接,我真的是服了),我顺着网站找到了他的博客,下面有人留言说可不可以要源码,他说先加vx.我兴冲冲的去加了,但是向他要的时候他说**"有偿!!!" **   
+
+我理解但不认同这种做法,也幸亏他拒绝了我,浇灭了我想偷懒的心
+
+在网上也很少搜到基于java实现的疫情可视化项目(其实主要是爬虫数据解析部分不明朗,大家好像都去用python了)
+
+基于以上原因,还有我一路对白嫖过来的视频和资源提供者感激,我当时就决定自己把这种项目写出来,发到网上,供像我一样的萌新参考,学习.
+
+第一次写,可能整理的不太详细,具体的就参照源码吧,. 基本的框架差不多就是这样,网站我会慢慢修改,逐渐脱离之前的布局(u1s1,真的有点丑),与此同时这也是一个融合和学习的好途径.
+
+**开源是一种精神**
+
+具体代码见 GitHub:[https://github.com/CR553/Project01.git](https://github.com/CR553/Project01.git)
