@@ -1,4 +1,5 @@
 # 页面效果
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507153752808.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70#pic_center)
 
 
@@ -442,7 +443,8 @@ public class HotServiceImpl implements HotService {
 这里是通过打个断点,debug慢慢分析的
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/2020050711585661.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
-差不多就这样
+
+差不多就这样测试
 
 
 
@@ -469,8 +471,6 @@ history
 一个for循环就可以搞定了.
 
 热搜hot表数据很少,debug一下很容易发现,这里不做说明.
-
-
 # 数据的保存
 
 以details为例
@@ -484,6 +484,10 @@ history
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855986.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
 另外两个操作基本相同
 
+
+# Controller+SQL+ajax
+
+
 # Controller+SQL+ajax
 
 数据保存到数据库后,剩下就是发送数据了
@@ -491,12 +495,12 @@ history
 整个数据的展示大体分为了六个部分,依次是l1,l2,c1,c2,r1,r2
 
 #### c1  
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855873.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855998.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855886.png)
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855970.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
 #### c2  地图
-![在这里插入图片描述](https://img-blog.csdnimg.cn/2020050711585670.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/2020050711585620.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/202005071158568.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855952.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
@@ -504,14 +508,14 @@ history
 
 #### l1  折线图
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855906.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
+
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/2020050711585611.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855917.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855900.png)
 
 #### l2  折线图
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855904.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/2020050711585660.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855921.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855893.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
@@ -527,12 +531,13 @@ history
 #### r2  词云
 
 这里用到了jieba分词器,将分词后的关键字和数值返回给前端
-![在这里插入图片描述](https://img-blog.csdnimg.cn/2020050711585675.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/2020050711585677.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855974.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855849.png)
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200507115855944.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NDI3Mzk0OA==,size_16,color_FFFFFF,t_70)
+
+
 # 其他技术
 关于echarts,该项目用的图表都是echarts中的基础图表,在官网都可以找到,你也可以用你自己找的图表,插值方式大同小异,这里注意的是
 地图和词云需要先引入相关js文件,相关文件都可以在echarts官网下载
